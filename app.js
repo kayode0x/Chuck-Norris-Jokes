@@ -22,7 +22,6 @@ function getJokes(e){
                 //check if the response was valid
                 if (response.type === 'success'){
                     response.value.forEach(function(joke){
-                        console.log(joke.joke)
                         //get the joke and make ut the output
                         output += `
                         <p>${joke.joke}</p>
