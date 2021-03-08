@@ -13,8 +13,10 @@ function getJokes(e){
             //validate input
             if(number === ""){
                 alert("Please enter a number.");
+                clearFields();
             } else if (number == 0){
                 alert("Please enter a number greater than 0.");
+                clearFields();
             } else {
                 const response = JSON.parse(this.responseText);
                 
@@ -28,6 +30,7 @@ function getJokes(e){
                         <hr>
                         `
                     });
+                    
                 } else {
                     output += '<p>Something went wrong</p>'
                 };
