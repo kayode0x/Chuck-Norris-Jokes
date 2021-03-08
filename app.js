@@ -6,7 +6,7 @@ function getJokes(e){
     
     const xhr = new XMLHttpRequest();
     //get the amount of jokes requested by the user
-    xhr.open('GET', `http://api.icndb.com/jokes/random/${number}`, true);
+    xhr.open('GET', `https://api.icndb.com/jokes/random/${number}`, true);
     xhr.onload = function(){
         //check if the json was loaded
         if(xhr.status === 200){
