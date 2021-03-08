@@ -1,3 +1,5 @@
 # Chuck-Norris-Jokes
 
-I used this project to learn api with XMLHTTPRequests.
+Enter the number of jokes you want and it will make a request to the api using xhr.
+
+I used this project to learn api requests with XMLHTTPRequests.
