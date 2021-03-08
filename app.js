@@ -11,7 +11,13 @@ function getJokes(e){
         //check if the json was loaded
         if(xhr.status === 200){
             //validate input
-            if (Number.isInteger(number)){
+            if(number === ""){
+                alert("Please enter a number");
+                clearFields();
+            } else if (number === 0 || number <= 1){
+                alert("Please enter a number greater than 0");
+                clearFields();
+            } else if (Number.isInteger(number)) {
                 const response = JSON.parse(this.responseText);
 
                 let output = '';
@@ -35,12 +41,6 @@ function getJokes(e){
                 //after displaying the jokes, clear the number
                 clearFields();
 
-            } else if(number === ""){
-                alert("Please enter a number.");
-                clearFields();
-            } else if (number == 0){
-                alert("Please enter a number greater than 0.");
-                clearFields();
             } else {
                 alert("Please enter a number");
                 clearFields();
