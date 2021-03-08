@@ -2,7 +2,7 @@ document.querySelector('.get-jokes').addEventListener('click', getJokes);
 
 function getJokes(e){
     // get the user input
-    const number = document.getElementById('number').value;
+    const number = Number(document.getElementById('number').value);
     
     const xhr = new XMLHttpRequest();
     //get the amount of jokes requested by the user
@@ -11,26 +11,20 @@ function getJokes(e){
         //check if the json was loaded
         if(xhr.status === 200){
             //validate input
-            if(number === ""){
-                alert("Please enter a number.");
-                clearFields();
-            } else if (number == 0){
-                alert("Please enter a number greater than 0.");
-                clearFields();
-            } else {
+            if (Number.isInteger(number)){
                 const response = JSON.parse(this.responseText);
-                
+
                 let output = '';
                 //check if the response was valid
-                if (response.type === 'success'){
-                    response.value.forEach(function(joke){
+                if (response.type === 'success') {
+                    response.value.forEach(function (joke) {
                         //get the joke and make ut the output
                         output += `
                         <p>${joke.joke}</p>
                         <hr>
                         `
                     });
-                    
+
                 } else {
                     output += '<p>Something went wrong</p>'
                 };
@@ -40,7 +34,17 @@ function getJokes(e){
 
                 //after displaying the jokes, clear the number
                 clearFields();
-            };
+
+            } else if(number === ""){
+                alert("Please enter a number.");
+                clearFields();
+            } else if (number == 0){
+                alert("Please enter a number greater than 0.");
+                clearFields();
+            } else {
+                alert("Please enter a number");
+                clearFields();
+            }
         };
     };
     xhr.send();
